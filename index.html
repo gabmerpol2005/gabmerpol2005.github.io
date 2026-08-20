@@ -49,6 +49,12 @@
         </a>
       </li>
       <li>
+        <a href="#proyectos">
+          <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75A2.25 2.25 0 016 4.5h4.086a2.25 2.25 0 011.59.659l1.415 1.414a2.25 2.25 0 001.59.66H18a2.25 2.25 0 012.25 2.25v8.25A2.25 2.25 0 0118 20.25H6a2.25 2.25 0 01-2.25-2.25v-11.25z"/></svg>
+          Proyectos
+        </a>
+      </li>
+      <li>
         <a href="#contacto">
           <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
           Contacto
@@ -260,6 +266,46 @@
       </div>
     </section>
 
+    <!-- Proyectos -->
+    <section id="proyectos">
+      <p class="section-label">Trabajo personal</p>
+      <h2 class="section-title">Proyectos</h2>
+
+      <div class="projects-grid">
+        <div class="exp-card project-card">
+          <img class="project-image" src="./assets/python-file-transfer.png" alt="Ilustracion de Python y transferencia de archivos">
+          <div class="project-content">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">File-Transefer</div>
+                <div class="exp-company">Repositorio en GitHub</div>
+              </div>
+            </div>
+            <p class="exp-desc">Proyecto disponible en GitHub.</p>
+            <a href="https://github.com/gaabriiel2005/File-Transefer" target="_blank" rel="noopener" class="btn btn-secondary">
+              Ver proyecto en GitHub →
+            </a>
+          </div>
+        </div>
+
+        <div class="exp-card project-card project-card-placeholder">
+          <div class="project-placeholder">Próximamente</div>
+          <div class="project-content">
+            <div class="exp-role">Nuevo proyecto</div>
+            <div class="exp-company">En preparación</div>
+          </div>
+        </div>
+
+        <div class="exp-card project-card project-card-placeholder">
+          <div class="project-placeholder">Próximamente</div>
+          <div class="project-content">
+            <div class="exp-role">Nuevo proyecto</div>
+            <div class="exp-company">En preparación</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contacto -->
     <section id="contacto">
       <p class="section-label">¿Hablamos?</p>
@@ -308,6 +354,28 @@
     <span>© 2026 Gabriel Polo Merlo</span>
     <span>Disponibilidad inmediata · Abierto a nuevas oportunidades</span>
   </footer>
+
+  <script>
+    document.documentElement.classList.add('js');
+
+    const sections = document.querySelectorAll('.main > section');
+    const revealSection = (section) => section.classList.add('is-visible');
+
+    if ('IntersectionObserver' in window) {
+      const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            revealSection(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+      sections.forEach((section) => sectionObserver.observe(section));
+    } else {
+      sections.forEach(revealSection);
+    }
+  </script>
 
 </body>
 </html>
